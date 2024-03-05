@@ -1,0 +1,55 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+
+  notifications-service:
+    container_name: notifications-service
+    build: ./Src/notifications-service
+    labels:
+      logging: "promtail"
+    ports:
+      - "8081:8081"
+
+  reservations-service:
+    container_name: reservations-service
+    build: ./Src/reservations-service
+    labels:
+      logging: "promtail"
+    ports:
+      - "8082:8082"
+
+  promtail:
+    image: grafana/promtail:2.9.0
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./Src/promtail-config.yaml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - loki
+
+  loki:
+    image: grafana/loki:2.9.0
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./Src/loki-config.yaml:/etc/loki/local-config.yaml
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+
+  grafana:
+    volumes:
+      - ./Src/grafana.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
+    environment:
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
