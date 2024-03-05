@@ -1,6 +1,6 @@
 # Hello World Grafana Loki
 
-📚 A repository to learn Grafana Loki
+📚 A repository to learn [Grafana Loki](https://grafana.com/oss/loki/)
 
 [![wakatime](https://wakatime.com/badge/github/GuilhermeStracini/hello-world-grafana-loki.svg)](https://wakatime.com/badge/github/GuilhermeStracini/hello-world-grafana-loki)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dd4083a1c59f910f73da/maintainability)](https://codeclimate.com/github/GuilhermeStracini/hello-world-grafana-loki/maintainability)
