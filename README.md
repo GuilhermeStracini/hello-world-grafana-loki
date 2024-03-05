@@ -13,3 +13,4 @@
 ## Useful links
 
 - https://blog.devops.dev/how-to-build-a-centralized-logging-solution-with-grafana-loki-07c53699a8cb
+- https://github.com/grafana/loki
