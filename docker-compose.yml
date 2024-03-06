@@ -6,16 +6,20 @@ networks:
 services:
 
   notifications-service:
-    container_name: notifications-service
-    build: ./Src/notifications-service
+    image: ${DOCKER_REGISTRY-}notifications-service
+    build:
+      context: .
+      dockerfile: ./Src/notifications-service/Dockerfile
     labels:
       logging: "promtail"
     ports:
       - "8081:8081"
 
   reservations-service:
-    container_name: reservations-service
-    build: ./Src/reservations-service
+        image: ${DOCKER_REGISTRY-}reservations-service
+    build:
+      context: .
+      dockerfile: ./Src/reservations-service/Dockerfile
     labels:
       logging: "promtail"
     ports:
