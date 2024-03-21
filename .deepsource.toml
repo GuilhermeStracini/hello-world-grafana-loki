@@ -1,0 +1,18 @@
+version = 1
+
+test_patterns = ["Tests/**"]
+
+[[analyzers]]
+name = "secrets"
+
+[[analyzers]]
+name = "test-coverage"
+
+[[analyzers]]
+name = "shell"
+
+[[analyzers]]
+name = "docker"
+
+[[analyzers]]
+name = "csharp"
