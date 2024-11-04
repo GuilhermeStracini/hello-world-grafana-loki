@@ -1,0 +1,4 @@
+rules:
+  - id: example-rule
+    pattern: "pattern_here"
+    message: "This is an example rule."
