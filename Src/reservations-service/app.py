@@ -1,7 +1,7 @@
 import logging
 
 from flask import Flask
-import random
+import secrets
 
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def analyze_data():
         "Optimize database queries for faster response times",
         "Implement caching to reduce load times"
     ]
-    return random.choice(suggestions)
+    return secrets.choice(suggestions)
 
 @app.route("/reservations", methods=["GET"])
 def reservations():
