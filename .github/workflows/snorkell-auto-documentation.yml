@@ -6,6 +6,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  pull_request:
+    branches: ["main"]
+  schedule:
 
 jobs:
   Documentation:
@@ -15,5 +18,8 @@ jobs:
       uses: SingularityX-ai/snorkell-documentation-client@v1.0.0
       with:
         client_id: ${{ secrets.SNORKELL_CLIENT_ID }}
+        feedback_endpoint: ${{ secrets.FEEDBACK_ENDPOINT }}
+        metrics_endpoint: ${{ secrets.METRICS_ENDPOINT }}
+        analysis_endpoint: ${{ secrets.ANALYSIS_ENDPOINT }}
         api_key: ${{ secrets.SNORKELL_API_KEY }}
         branch_name: "main"
