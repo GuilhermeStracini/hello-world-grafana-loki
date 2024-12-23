@@ -22,6 +22,9 @@ query_range:
       embedded_cache:
         enabled: true
         max_size_mb: 100
+  user_preferences:
+    type: list
+    description: User preferences for metrics display
 
 schema_config:
   configs:
