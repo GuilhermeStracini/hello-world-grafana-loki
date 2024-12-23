@@ -9,3 +9,8 @@ datasources:
   isDefault: true
   version: 1
   editable: false
+  user_feedback:
+    type: list
+    description: User feedback for desired metrics
+    default: []
+    editable: true
