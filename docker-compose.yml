@@ -15,6 +15,9 @@ services:
     ports:
       - "8081:8081"
 
+    environment:
+      - FEEDBACK_ENDPOINT=/feedback
+      - METRICS_ENDPOINT=/metrics
   reservations-service:
         image: ${DOCKER_REGISTRY-}reservations-service
     build:
@@ -24,6 +27,9 @@ services:
       logging: "promtail"
     ports:
       - "8082:8082"
+    environment:
+      - ANALYSIS_ENDPOINT=/analyze
+      - SUGGESTIONS_ENDPOINT=/suggestions
 
   promtail:
     image: grafana/promtail:2.9.0
