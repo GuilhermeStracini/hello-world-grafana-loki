@@ -1,12 +1,14 @@
 version = 1
 
-test_patterns = ["Tests/**"]
+# TODO: Uncomment once the testz has been added.
+# test_patterns = ["Tests/**"]
+
+# TODO: Uncomment once the testz has been added.
+# [[analyzers]]
+# name = "test-coverage"
 
 [[analyzers]]
 name = "secrets"
-
-[[analyzers]]
-name = "test-coverage"
 
 [[analyzers]]
 name = "shell"
